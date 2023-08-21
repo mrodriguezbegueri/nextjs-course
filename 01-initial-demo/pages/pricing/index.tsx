@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { MainLayout } from '../../components/layouts/MainLayout'
+import { ReactElement } from 'react'
 
 export default function PricingPage() {
   return (
@@ -16,7 +17,7 @@ export default function PricingPage() {
   )
 }
 
-PricingPage.getLayout = function getLayout( page ) {
+PricingPage.getLayout = function getLayout( page: ReactElement ) {
     return (
         <MainLayout>
             { page }
