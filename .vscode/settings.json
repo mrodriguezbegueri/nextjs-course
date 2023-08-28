@@ -3,5 +3,13 @@
         "activityBar.background": "#402815",
         "titleBar.activeBackground": "#5A381E",
         "titleBar.activeForeground": "#FCF9F7"
-    }
+    },
+    "cSpell.words": [
+        "nextui",
+        "tailwindcss"
+    ],
+    "files.associations": {
+        "*.css": "tailwindcss"
+      }
+    
 }
