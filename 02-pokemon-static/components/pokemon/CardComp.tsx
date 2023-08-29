@@ -17,7 +17,7 @@ export const CardComp: FC<Props> = ({pokemon}) => {
 const router = useRouter()
 
   const onClick = () => {
-    router.push(`pokemon/${id}`)
+    router.push(`pokemon/name/${name}`)
   }
   
   return (

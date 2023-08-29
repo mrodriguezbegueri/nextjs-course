@@ -3,16 +3,9 @@ import { Metadata } from 'next';
 import {Providers} from "./providers";
 import './globals.css'
 import { Navbar } from '../components/ui';
+import { metadataConstant } from '@/constants/contanst';
 
-export const metadata: Metadata = {
-  title: 'Pokemon',
-  authors: {
-    name: 'Matías Rodríguez',
-    url: ''
-  },
-  keywords: ['Pokemon', 'XXXXXX']
-  
-}
+export const metadata: Metadata = metadataConstant
 
 export default function RootLayout({children}: { children: React.ReactNode}) {
 
