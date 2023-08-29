@@ -23,8 +23,6 @@ const Page: NextPage = async () => {
   const pokemons = await getPokemons();
 
   return (
-    <>
-    <Image alt="" src='/img/banner.png' width={100} height={100} />
       <div className="gap-2 grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6">
         {pokemons.map((pokemon, index) => (
           <>
@@ -32,7 +30,6 @@ const Page: NextPage = async () => {
           </>
         ))}
       </div>
-    </>
   );
 };
 
