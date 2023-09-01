@@ -1,7 +1,6 @@
 import { CardComp } from "@/components/pokemon";
 import { PokemonListResponse, SmallPokemon } from "@/interfaces";
 import { NextPage } from "next";
-import Image from "next/image";
 
 const getPokemons = async (): Promise<SmallPokemon[]> => {
   const getPokemonResponse = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151", {

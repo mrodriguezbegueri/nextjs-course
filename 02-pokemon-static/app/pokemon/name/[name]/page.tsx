@@ -3,6 +3,10 @@ import { Pokemon, PokemonListResponse } from "@/interfaces";
 import { OnePokemonPage } from "@/components/pokemon";
 import { getPokemonInfo } from "@/utils/getPokemonInfo";
 import { Metadata, ResolvingMetadata } from "next";
+import { redirect } from "next/navigation";
+import { RedirectType } from "next/dist/client/components/redirect";
+
+export const dynamicParams = true
 
 interface Props {
   params: {
@@ -27,6 +31,10 @@ export async function generateMetadata({params}: Props, parent: ResolvingMetadat
 
 const getPokemon = async (name: string): Promise<Pokemon> => {
   const pokemon = await getPokemonInfo(name)
+  
+  if (pokemon === null) {
+    redirect('/', RedirectType.push)
+  }
 
   return pokemon
 }
