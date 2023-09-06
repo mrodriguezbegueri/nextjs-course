@@ -1,5 +1,6 @@
 
 
 export * from './UIContext'
-export * from './UIProvider'
 export * from './uiReducer'
+export * from './UIProvider'
+export { default as UIProvider } from './UIProvider'
