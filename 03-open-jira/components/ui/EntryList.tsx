@@ -8,7 +8,6 @@ import { EntriesContext } from "@/context/entries";
 import { UIContext } from "@/context/ui";
 
 import styles from './EntryList.module.css'
-
 interface Props {
   status: EntryStatus;
 }

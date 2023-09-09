@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, PropsWithChildren, useMemo, useReducer } from 'react'
+import { FC, PropsWithChildren, useEffect, useMemo, useReducer } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { EntriesContext, entriesReducer } from '.'
 import { Entry } from '@/interfaces'
@@ -10,26 +10,7 @@ export interface EntriesState {
 }
 
 const Entries_INITIAL_STATE: EntriesState = {
-   entries: [
-    {
-        _id: uuidv4(),
-        description: 'PENDIENTE: Description 1',
-        status: 'pending',
-        createdAt: Date.now()
-    },
-    {
-        _id: uuidv4(),
-        description: 'EN-PROGRESO: Description 2',
-        status: 'in-progress',
-        createdAt: Date.now() - 1000000
-    },
-    {
-        _id: uuidv4(),
-        description: 'TERMINADA: Description 3',
-        status: 'finished',
-        createdAt: Date.now() - 100000
-    },
-   ]
+   entries: []
 }
 
 const EntriesProvider:FC<PropsWithChildren> = ({ children }) => {
@@ -50,6 +31,16 @@ const EntriesProvider:FC<PropsWithChildren> = ({ children }) => {
   const updateEntry = (entry: Entry) => {
     dispatch({ type: '[Entry]- Entry-Updated', payload: entry })
   }
+
+  const refreshEntries = async () => {
+    const res = await fetch('/api/entries')
+    const entries: Entry[] = await res.json()
+    dispatch({type: '[Entry]- Refresh-Data', payload: entries})
+  }
+
+  useEffect(() => {
+    refreshEntries()
+  }, [])
 
   //  const contextValue = useMemo(() => {
   //     // Tu lógica para calcular el valor del contexto aquí.
